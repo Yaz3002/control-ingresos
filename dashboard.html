@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" crossorigin src="/Gestion_Dinero/assets/dashboard-MddRShUV.js"></script>
+  <link rel="modulepreload" crossorigin href="/Gestion_Dinero/assets/supabase-CkmPbGev.js">
+  <link rel="stylesheet" crossorigin href="/Gestion_Dinero/assets/style-C2al-OJN.css">
+</head>
+<body class="dashboard-body">
+  <nav class="navbar" role="navigation" aria-label="Barra de navegación principal">
+    <h1>Dashboard de Ingresos</h1>
+    <button id="logout-btn" aria-label="Cerrar sesión">Cerrar sesión</button>
+  </nav>
+
+  <main class="dashboard-content">
+    <section class="form-section" aria-labelledby="form-section-title">
+      <h2 id="form-section-title">Nuevo Ingreso</h2>
+      <form id="income-form" novalidate>
+        <div>
+          <label for="income-date">Fecha:</label>
+          <input type="date" id="income-date" name="income-date" required aria-required="true" />
+        </div>
+        <div>
+          <label for="income-amount">Monto (S/.):</label>
+          <input type="number" id="income-amount" name="income-amount" placeholder="Ej. 100.00" min="0.01" step="0.01" required aria-required="true" />
+        </div>
+        <div>
+          <label for="income-notes">Notas (opcional):</label>
+          <textarea id="income-notes" name="income-notes" placeholder="Observaciones" rows="3"></textarea>
+        </div>
+        <button type="submit" id="submit-income">Agregar</button>
+        <p id="form-msg" class="form-message" role="alert" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="stats-section" aria-labelledby="stats-section-title">
+      <h2 id="stats-section-title">Estadísticas Mensuales</h2>
+      <p id="total-month" aria-live="polite"></p>
+      <p id="total-year" aria-live="polite"></p>
+      <canvas id="weekly-chart" role="img" aria-label="Gráfico de barras de ingresos por día del mes"></canvas>
+      <p id="analysis-result" aria-live="polite"></p>
+    </section>
+
+    <section class="filter-section" aria-labelledby="filter-section-title">
+      <h3 id="filter-section-title">Filtrar Ingresos</h3>
+      <form id="filter-form" aria-label="Formulario de filtro de ingresos">
+        <div>
+          <label for="filter-month-select">Mes y Año:</label>
+          <select id="filter-month-select" name="filter-month-select" aria-describedby="filter-month-desc">
+            <option value="">-- Selecciona mes y año --</option>
+            <option value="2025-01">Enero 2025</option>
+            <option value="2025-02">Febrero 2025</option>
+            <option value="2025-03">Marzo 2025</option>
+            <option value="2025-04">Abril 2025</option>
+            <option value="2025-05">Mayo 2025</option>
+            <option value="2025-06">Junio 2025</option>
+          </select>
+          <small id="filter-month-desc">Seleccione un mes y año para filtrar los ingresos.</small>
+        </div>
+        <button type="button" id="filter-btn">Filtrar</button>
+      </form>
+    </section>
+
+    <section class="table-section" aria-labelledby="table-section-title">
+      <h2 id="table-section-title">Historial de Ingresos</h2>
+      <table id="income-table" role="table" aria-describedby="table-desc">
+        <caption id="table-desc">Tabla con la lista de ingresos registrados, fecha, monto, notas y acciones</caption>
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Monto (S/.)</th>
+            <th scope="col">Notas</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="pagination-controls" role="navigation" aria-label="Controles de paginación">
+        <button id="prev-page" aria-label="Página anterior">Anterior</button>
+        <span id="current-page" aria-live="polite" aria-atomic="true">1</span>
+        <button id="next-page" aria-label="Página siguiente">Siguiente</button>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
