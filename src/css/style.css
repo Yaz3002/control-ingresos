@@ -1,0 +1,343 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tipografía y base */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(145deg, #003f5c 0%, #58508d 100%);
+  min-height: 100vh;
+  color: #003f5c;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Contenedores genéricos */
+.container, .login-container, .dashboard-content {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0, 63, 92, 0.15);
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.login-container {
+  max-width: 420px;
+  text-align: center;
+}
+
+/* Navegación */
+.navbar {
+  background: #003f5c;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Títulos */
+h1, h2, h3 {
+  color: #003f5c;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+/* Formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-section div, .filter-section div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: 500;
+  color: #003f5c;
+}
+
+input, select, textarea {
+  padding: 0.8rem;
+  border: 1px solid #58508d;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #003f5c;
+  background: #f9fafb;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #bc5090;
+  box-shadow: 0 0 0 3px rgba(188, 80, 144, 0.1);
+}
+
+input::placeholder, textarea::placeholder {
+  color: #6b7280;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Botones */
+.btn, button {
+  background: #58508d;
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover, button:hover {
+  background: #bc5090;
+  transform: translateY(-2px);
+}
+
+.btn:disabled, button:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn:disabled::after, button:disabled::after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #ffffff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-left: 6px;
+}
+
+.btn-primary {
+  background: #ffa600;
+}
+
+.btn-primary:hover {
+  background: #bc5090;
+}
+
+/* Enlaces */
+a, .forgot-password {
+  color: #ffa600;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+a:hover, .forgot-password:hover {
+  color: #bc5090;
+}
+
+.forgot-password {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+/* Mensajes */
+.form-message, .error-message {
+  color: #ff6361;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+  min-height: 1.2rem;
+  font-weight: 500;
+}
+
+/* Secciones del dashboard */
+.form-section, .stats-section, .filter-section, .table-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.stats-section p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #003f5c;
+}
+
+/* Gráficos */
+canvas {
+  max-width: 100%;
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: #ffffff;
+}
+
+th, td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  background: #58508d;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+td {
+  color: #003f5c;
+}
+
+caption {
+  caption-side: bottom;
+  font-size: 0.85rem;
+  color: #6b7280;
+  padding: 0.5rem;
+}
+
+/* Paginación */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pagination-controls button {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+#current-page {
+  font-size: 1rem;
+  color: #003f5c;
+}
+
+/* Hero (index.html) */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #ffffff;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #d1d5db;
+}
+
+/* Animación de carga */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .container, .dashboard-content {
+    padding: 1.5rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .form-section, .filter-section {
+    padding: 1rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 1.5rem;
+  }
+
+  input, select, textarea, .btn, button {
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+
+  .form-message, .error-message {
+    font-size: 0.8rem;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .navbar h1 {
+    font-size: 1.5rem;
+  }
+
+  .pagination-controls button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}

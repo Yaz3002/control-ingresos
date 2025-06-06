@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Página no encontrada</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+  <script>
+    const path = window.location.pathname;
+    if (!path.match(/\/(index|login|dashboard)\.html$/)) {
+      window.location.href = '/control-ingresos/';
+    }
+  </script>
+</head>
+<body>
+  <div class="hero">
+    <h1>Página no encontrada</h1>
+    <p>La página que buscas no existe.</p>
+    <a href="/control-ingresos/" class="btn btn-primary">Volver al inicio</a>
+  </div>
+</body>
+</html>
