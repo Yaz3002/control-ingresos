@@ -204,7 +204,7 @@ a:hover, .forgot-password:hover {
 /* Gráficos */
 canvas {
   max-width: 100%;
-  background: #ffffff;
+  background: #f3f1f1;
   padding: 1rem;
   border-radius: 8px;
   border: 1px solid #e5e7eb;
@@ -291,6 +291,9 @@ caption {
   .navbar {
     flex-direction: column;
     gap: 1rem;
+  }
+  .canvas {
+    max-width: 100%;
   }
 
   h1 {
