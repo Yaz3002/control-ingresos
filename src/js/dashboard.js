@@ -309,7 +309,7 @@ function showAnalysis(ingresos) {
     totals[day] += i.monto;
   });
 
-  const days = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+  const days = [ 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado','domingo'];
   const sortedDays = totals
     .map((total, index) => ({ day: days[index], total }))
     .sort((a, b) => b.total - a.total)
