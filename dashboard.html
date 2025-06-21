@@ -140,55 +140,6 @@
       </div>
     </section>
 
-    <!-- Enhanced Filter Section -->
-    <section class="filter-section" aria-labelledby="filter-section-title">
-      <h3 id="filter-section-title">Filtrar Ingresos</h3>
-      <form id="filter-form" aria-label="Formulario de filtro de ingresos">
-        <div class="filter-row">
-          <div class="filter-group">
-            <label for="filter-month-select">Mes y Año:</label>
-            <select id="filter-month-select" name="filter-month-select" aria-describedby="filter-month-desc">
-              <option value="">-- Selecciona mes y año --</option>
-            </select>
-            <small id="filter-month-desc">Seleccione un mes y año para filtrar los ingresos.</small>
-          </div>
-          
-          <div class="filter-group">
-            <label for="custom-date-start">Fecha Inicio:</label>
-            <input type="date" id="custom-date-start" name="custom-date-start" />
-          </div>
-          
-          <div class="filter-group">
-            <label for="custom-date-end">Fecha Fin:</label>
-            <input type="date" id="custom-date-end" name="custom-date-end" />
-          </div>
-        </div>
-        
-        <button type="button" id="filter-btn">Filtrar</button>
-      </form>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section" aria-labelledby="stats-section-title">
-      <h2 id="stats-section-title">Estadísticas</h2>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <p id="total-month" aria-live="polite">Total mes: S/. 0.00</p>
-        </div>
-        <div class="stat-card">
-          <p id="total-year" aria-live="polite">Total año: S/. 0.00</p>
-        </div>
-      </div>
-      
-      <div class="chart-container">
-        <canvas id="weekly-chart" role="img" aria-label="Gráfico de barras de ingresos por día del mes"></canvas>
-      </div>
-      
-      <div class="analysis-container">
-        <p id="analysis-result" aria-live="polite"></p>
-      </div>
-    </section>
-
     <!-- Table Section -->
     <section class="table-section" aria-labelledby="table-section-title">
       <h2 id="table-section-title">Historial de Ingresos</h2>
