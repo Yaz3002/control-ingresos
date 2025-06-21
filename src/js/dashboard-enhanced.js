@@ -1,6 +1,7 @@
 import { supabase } from './supabase.js';
 import { requireAuth } from './auth.js';
 import { reportsManager } from './reports.js';
+import { chartsManager } from './charts.js';
 
 class DashboardManager {
   constructor() {
@@ -81,6 +82,9 @@ class DashboardManager {
 
     // Load available date ranges for filters
     await this.loadDateRanges();
+
+    // Initialize charts system
+    await chartsManager.initialize();
 
     // Load initial data
     await this.loadDashboardData();
@@ -209,9 +213,11 @@ class DashboardManager {
       this.incomeForm.reset();
       this.resetForm();
       
-      // Clear cache and reload data
+      // Clear caches and reload data
       reportsManager.clearCache();
+      chartsManager.clearCache();
       await this.loadDashboardData();
+      await chartsManager.refreshChartsData();
       
     } catch (error) {
       this.formMsg.style.color = 'red';

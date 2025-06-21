@@ -6,6 +6,7 @@
   <title>Dashboard</title>
   <link rel="stylesheet" href="/src/css/style.css" />
   <link rel="stylesheet" href="/src/css/dashboard-enhanced.css" />
+  <link rel="stylesheet" href="/src/css/charts.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="dashboard-body">
@@ -36,6 +37,83 @@
         <button type="submit" id="submit-income">Agregar</button>
         <p id="form-msg" class="form-message" role="alert" aria-live="polite"></p>
       </form>
+    </section>
+
+    <!-- Charts and Statistics Section -->
+    <section class="charts-section" aria-labelledby="charts-section-title">
+      <h2 id="charts-section-title">Gráficas Estadísticas</h2>
+      
+      <!-- Chart Filters -->
+      <div class="chart-filters">
+        <div class="filter-controls">
+          <div class="filter-group">
+            <label for="chart-period-filter">Período:</label>
+            <select id="chart-period-filter">
+              <option value="current-month">Mes Actual</option>
+              <option value="last-month">Mes Anterior</option>
+              <option value="current-year">Año Actual</option>
+              <option value="last-3-months">Últimos 3 Meses</option>
+              <option value="last-6-months">Últimos 6 Meses</option>
+              <option value="custom">Personalizado</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="chart-start-date">Fecha Inicio:</label>
+            <input type="date" id="chart-start-date" />
+          </div>
+
+          <div class="filter-group">
+            <label for="chart-end-date">Fecha Fin:</label>
+            <input type="date" id="chart-end-date" />
+          </div>
+
+          <div class="filter-group">
+            <label for="chart-type-selector">Tipo de Gráfica:</label>
+            <select id="chart-type-selector">
+              <option value="bar">Barras</option>
+              <option value="line">Líneas</option>
+              <option value="area">Área</option>
+              <option value="pie">Circular</option>
+              <option value="doughnut">Dona</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="comparison-toggle" />
+              <span>Comparar Períodos</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-actions">
+          <button type="button" id="apply-chart-filters" class="btn btn-primary">Aplicar Filtros</button>
+          <button type="button" id="reset-chart-filters" class="btn btn-secondary">Resetear</button>
+          <button type="button" id="export-chart-data" class="btn btn-accent">Exportar Datos</button>
+        </div>
+      </div>
+
+      <!-- Filter Summary -->
+      <div id="filter-summary" class="filter-summary"></div>
+
+      <!-- Period Total Highlight -->
+      <div id="filtered-period-total" class="period-total-highlight"></div>
+
+      <!-- Charts Grid -->
+      <div class="charts-grid">
+        <div class="chart-container main-chart">
+          <canvas id="main-income-chart" role="img" aria-label="Gráfico principal de ingresos"></canvas>
+        </div>
+
+        <div class="chart-container trend-chart">
+          <canvas id="trend-chart" role="img" aria-label="Gráfico de tendencia acumulada"></canvas>
+        </div>
+
+        <div class="chart-container distribution-chart">
+          <canvas id="distribution-chart" role="img" aria-label="Gráfico de distribución por rangos"></canvas>
+        </div>
+      </div>
     </section>
 
     <!-- Monthly Report Section -->

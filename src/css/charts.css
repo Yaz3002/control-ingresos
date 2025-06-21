@@ -1,0 +1,417 @@
+/* Charts and Statistics Styles */
+
+.charts-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Chart Filters */
+.chart-filters {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0, 63, 92, 0.05);
+}
+
+.filter-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: #003f5c;
+  font-size: 0.9rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  background: #6b7280;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background: #4b5563;
+}
+
+.btn-accent {
+  background: #ffa600;
+  color: #ffffff;
+}
+
+.btn-accent:hover {
+  background: #e6940a;
+}
+
+/* Filter Summary */
+.filter-summary {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.filter-summary-content h4 {
+  color: #003f5c;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-tag {
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid #c7d2fe;
+}
+
+/* Period Total Highlight */
+.period-total-highlight {
+  background: linear-gradient(135deg, #58508d 0%, #bc5090 100%);
+  color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(88, 80, 141, 0.2);
+}
+
+.period-total-card h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.total-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.total-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.total-details p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+}
+
+.total-details strong {
+  color: #ffffff;
+}
+
+/* Charts Grid */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.main-chart {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.trend-chart {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.distribution-chart {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.chart-container {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 63, 92, 0.05);
+  position: relative;
+  min-height: 300px;
+}
+
+.chart-container canvas {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* Chart Loading State */
+.chart-container.loading::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #58508d;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 10;
+}
+
+.chart-container.loading::after {
+  content: 'Cargando gráfico...';
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #6b7280;
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+/* Chart Responsive Behavior */
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .main-chart {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .trend-chart {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .distribution-chart {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-actions {
+    flex-direction: column;
+  }
+
+  .filter-actions button {
+    width: 100%;
+  }
+
+  .total-details {
+    grid-template-columns: 1fr;
+  }
+
+  .total-amount {
+    font-size: 2rem;
+  }
+
+  .chart-container {
+    padding: 1rem;
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .charts-section {
+    padding: 1rem;
+  }
+
+  .chart-filters {
+    padding: 1rem;
+  }
+
+  .filter-tags {
+    flex-direction: column;
+  }
+
+  .filter-tag {
+    text-align: center;
+  }
+
+  .total-amount {
+    font-size: 1.8rem;
+  }
+
+  .chart-container {
+    min-height: 200px;
+  }
+}
+
+/* Chart Animation */
+@keyframes chartFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chart-container {
+  animation: chartFadeIn 0.5s ease-out;
+}
+
+/* Export Button Special Styling */
+#export-chart-data {
+  position: relative;
+  overflow: hidden;
+}
+
+#export-chart-data::before {
+  content: '📊';
+  margin-right: 0.5rem;
+}
+
+#export-chart-data:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 166, 0, 0.3);
+}
+
+/* Period Selector Enhancement */
+#chart-period-filter {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+/* Chart Type Selector Icons */
+#chart-type-selector option[value="bar"]::before { content: '📊 '; }
+#chart-type-selector option[value="line"]::before { content: '📈 '; }
+#chart-type-selector option[value="area"]::before { content: '📉 '; }
+#chart-type-selector option[value="pie"]::before { content: '🥧 '; }
+#chart-type-selector option[value="doughnut"]::before { content: '🍩 '; }
+
+/* Comparison Toggle Enhancement */
+.checkbox-label:hover {
+  background: rgba(88, 80, 141, 0.05);
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin: -0.5rem;
+}
+
+/* Print Styles for Charts */
+@media print {
+  .chart-filters,
+  .filter-actions {
+    display: none;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .chart-container {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  .period-total-highlight {
+    background: #f3f4f6 !important;
+    color: #000 !important;
+    border: 2px solid #000;
+  }
+
+  .total-amount {
+    color: #000 !important;
+  }
+}
+
+/* Accessibility Enhancements */
+.chart-container:focus-within {
+  outline: 2px solid #58508d;
+  outline-offset: 2px;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+  box-shadow: 0 0 0 3px rgba(88, 80, 141, 0.1);
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .chart-container {
+    border: 2px solid #000;
+  }
+
+  .filter-tag {
+    border: 2px solid #000;
+    background: #fff;
+    color: #000;
+  }
+
+  .period-total-highlight {
+    border: 3px solid #000;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .chart-container {
+    animation: none;
+  }
+
+  #export-chart-data:hover {
+    transform: none;
+  }
+
+  .chart-container.loading::before {
+    animation: none;
+  }
+}
